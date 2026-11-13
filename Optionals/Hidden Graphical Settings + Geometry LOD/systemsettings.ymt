@@ -1,0 +1,1624 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<uiSystemSettingsGroup>
+  <id>system</id>
+  <version value="37"/>
+  <groupMetaData>
+    <displayName>PM_SCR_GRAPHICS</displayName>
+    <description>SYSTEM_SETTINGS_DESC</description>
+    <displayStyle>kSettingDisplay_StandardGroup</displayStyle>
+    <flags>kSettingFlags_OnlyLoadUserDataAtBoot</flags>
+  </groupMetaData>
+  <SubGroups>
+    <Item type="rage__fwuiVideoSettingsGroup">
+      <id>video</id>
+      <groupMetaData>
+        <displayName>PM_PANE_VID</displayName>
+        <description/>
+        <displayStyle>kSettingDisplay_StandardGroup</displayStyle>
+      </groupMetaData>
+      <Settings>
+        <Item type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>adapterIndex</id>
+          <displayStyle>kSettingDisplay_Stepper_Raw</displayStyle>
+          <displayName>VID_ADAPTER</displayName>
+          <description>VID_ADAPTER_DESC</description>
+          <minimum value="0"/>
+          <maxEvaluator type="rage__fwuiMaxAdapters"/>
+          <flags>kSettingFlags_RequiresImmediateGameRestart kSettingFlags_DontRestoreDefault</flags>
+          <displayConverter>pause/settings/basic_int</displayConverter>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>outputIndex</id>
+          <displayStyle>kSettingDisplay_Stepper_Raw</displayStyle>
+          <displayName>VID_MONITOR</displayName>
+          <description>VID_MONITOR_DESC</description>
+          <minimum value="0"/>
+          <maxEvaluator type="rage__fwuiMaxMonitors"/>
+          <flags>kSettingFlags_RequiresDeviceRestart kSettingFlags_DontRestoreDefault</flags>
+          <displayConverter>pause/settings/basic_int</displayConverter>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>resolutionIndex</id>
+          <displayStyle>kSettingDisplay_Stepper_Raw</displayStyle>
+          <displayName>VID_RESOLUTION</displayName>
+          <description>VID_RESOLUTION_DESC</description>
+          <maxEvaluator type="rage__fwuiMaxResolutionIndex">
+            <windowed value="false"/>
+          </maxEvaluator>
+          <flags>kSettingFlags_AlwaysUpdateDisplay</flags>
+          <displayConverter>pause/settings/resolution</displayConverter>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_UInt32">
+                <setting>
+                  <Path>system.video.windowed</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="0"/>
+              </condition>
+              <displayType>kSettingDependency_Hide</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>screenWidth</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <displayName>VID_SCREEN_W</displayName>
+          <description/>
+          <minimum value="0"/>
+          <maximum value="16384"/>
+          <flags>kSettingFlags_RequiresDeviceRestart kSettingFlags_DontRestoreDefault</flags>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>screenHeight</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <displayName>VID_SCREEN_H</displayName>
+          <description/>
+          <minimum value="0"/>
+          <maximum value="16384"/>
+          <flags>kSettingFlags_RequiresDeviceRestart kSettingFlags_DontRestoreDefault</flags>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>resolutionIndexWindowed</id>
+          <displayStyle>kSettingDisplay_Stepper_Raw</displayStyle>
+          <displayName>VID_RESOLUTION</displayName>
+          <description>VID_RESOLUTION_DESC</description>
+          <maxEvaluator type="rage__fwuiMaxResolutionIndex">
+            <windowed value="true"/>
+          </maxEvaluator>
+          <flags>kSettingFlags_AlwaysUpdateDisplay</flags>
+          <displayConverter>pause/settings/resolution</displayConverter>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_UInt32">
+                <setting>
+                  <Path>system.video.windowed</Path>
+                </setting>
+                <action>kSettingDependency_Not_Equal</action>
+                <targetValue value="0"/>
+              </condition>
+              <displayType>kSettingDependency_Hide</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>screenWidthWindowed</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <displayName>VID_SCREEN_W</displayName>
+          <description/>
+          <minimum value="0"/>
+          <maximum value="16384"/>
+          <flags>kSettingFlags_RequiresDeviceRestart kSettingFlags_DontRestoreDefault</flags>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>screenHeightWindowed</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <displayName>VID_SCREEN_H</displayName>
+          <description/>
+          <minimum value="0"/>
+          <maximum value="16384"/>
+          <flags>kSettingFlags_RequiresDeviceRestart kSettingFlags_DontRestoreDefault</flags>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>refreshRateIndex</id>
+          <displayStyle>kSettingDisplay_Stepper_Raw</displayStyle>
+          <displayName>VID_REFRESH</displayName>
+          <description>VID_REFRESH_DESC</description>
+          <maxEvaluator type="rage__fwuiMaxRefreshRateIndex"/>
+          <displayConverter>pause/settings/refresh_rate</displayConverter>
+          <flags>kSettingFlags_AlwaysUpdateDisplay</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_UInt32">
+                <setting>
+                  <Path>system.video.windowed</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="0"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>refreshRateNumerator</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <displayName>VID_REFRESH</displayName>
+          <description/>
+          <minimum value="0"/>
+          <maximum value="262144"/>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>refreshRateDenominator</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <displayName>VID_REFRESH_DENOM</displayName>
+          <description/>
+          <minimum value="0"/>
+          <maximum value="262144"/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>windowed</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>VID_SCR_TYPE</displayName>
+          <description>VID_SCR_TYPE_DESC</description>
+          <minimum value="0"/>
+          <maximum value="2"/>
+          <displayConverter>pause/settings/screen_type</displayConverter>
+          <flags>kSettingFlags_RequiresDeviceRestart kSettingFlags_DontRestoreDefault</flags>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Int32">
+          <id>vSync</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>VID_VSYNC</displayName>
+          <description>VID_VSYNC_DESC</description>
+          <minimum value="0"/>
+          <maximum value="2"/>
+          <displayConverter>pause/settings/vsync</displayConverter>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_ReflexSettings">
+          <id>ReflexSettings</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_REFLEX</displayName>
+          <description>GFX_REFLEX_DESC</description>
+          <minimum value="0"/>
+          <maximum value="2"/>
+          <displayConverter>pause/settings/reflex</displayConverter>
+          <dependencyConditions>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="uiConditionCommandLineArg">
+                    <Arg>displayReflex</Arg>
+                  </Item>
+                  <Item type="uiConditionIsReflexSupported"/>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Hide</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>tripleBuffered</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>TRIPLE_BUFFER</displayName>
+          <description>TRIPLE_BUFFER_DESC</description>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_Bool">
+          <id>pauseOnFocusLoss</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>VID_FOCUS</displayName>
+          <description>VID_FOCUS_DESC</description>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_Bool">
+          <id>constrainMousePointer</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>VID_CONSTRAIN</displayName>
+          <description/>
+        </Item>
+      </Settings>
+    </Item>
+    <Item type="rage__fwuiGraphicsSettingsGroup">
+      <id>graphics</id>
+      <groupMetaData>
+        <displayName>PM_SCR_GRAPHICS</displayName>
+        <description/>
+        <displayStyle>kSettingDisplay_StandardGroup</displayStyle>
+      </groupMetaData>
+      <Settings>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_Float">
+          <id>graphicsQualityPreset</id>
+          <displayStyle>kSettingDisplay_GraphicsPreset</displayStyle>
+          <displayName>GFX_MASTER_QUALITY_PRESET</displayName>
+          <description>GFX_MASTER_QUALITY_PRESET_DESC</description>
+          <step value="0.05000000"/>
+          <description/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>textureQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_TXTQ</displayName>
+          <description>GFX_TXTQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_RequiresGameRestart</flags>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Int32">
+          <id>anisotropicFiltering</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_ANISOT</displayName>
+          <description>GFX_ANISOT_DESC</description>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <minimum value="0"/>
+          <maximum value="4"/>
+          <displayConverter>pause/settings/multiplier</displayConverter>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>lightingQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_LIGHTINGQ</displayName>
+          <description>GFX_LIGHTINGQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>ambientLightingQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_AMBLIGHTINGQ</displayName>
+          <description>GFX_AMBLIGHTINGQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>shadowQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_SHADOWQ</displayName>
+          <description>GFX_SHADOWQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>farShadowQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_FAR_SHADOW_QUALITY</displayName>
+          <description>GFX_FAR_SHADOW_QUALITY_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_DontClampOnSet kSettingFlags_RequiresDeviceRestart</flags>
+          <description/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>ssao</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>MO_GFX_SSAO</displayName>
+          <description>MO_GFX_SSAO_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <displayConverter>pause/settings/enable_med_to_ultra_quality</displayConverter>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>reflectionQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_REFELECTIONQ</displayName>
+          <description>GFX_REFELECTIONQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>mirrorQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_MIRRORQ</displayName>
+          <description>GFX_MIRRORQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>waterQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_WATERQ</displayName>
+          <description>GFX_WATERQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_High</maximum>
+          <flags>kSettingFlags_DontClampOnSet</flags>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>volumetricsQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_VOLUMETRICSQ</displayName>
+          <description>GFX_VOLUMETRICSQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_DontClampOnSet</flags>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>particleQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_PRTQ</displayName>
+          <description>GFX_PRTQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>tessellation</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_TESSELLATION</displayName>
+          <description>GFX_TESSELLATION_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_Int32">
+          <id>dlssIndex</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_DLSS_MODE</displayName>
+          <description>GFX_DLSS_MODE_DESC</description>
+          <minimum value="0"/>
+          <maxEvaluator type="rage__fwuiMaxDLSSIndex"/>
+          <displayConverter>pause/settings/dlss_perf_quality</displayConverter>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="uiConditionCommandLineArg">
+                    <Arg>displayDLSSCalibration</Arg>
+                  </Item>
+                  <Item type="uiConditionIsDLSSSupported"/>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Hide</displayType>
+            </Item>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.fsr2Index</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="0"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_Int32">
+          <id>dlssQuality</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <minimum value="0"/>
+          <maximum value="100"/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Float">
+          <id>dlssSharpen</id>
+          <displayStyle>kSettingDisplay_Slider</displayStyle>
+          <displayName>GFX_DLSS_SHARPEN</displayName>
+          <description>GFX_DLSS_SHARPEN_DESC</description>
+          <minimum value="0.00000000"/>
+          <maximum value="1.00000000"/>
+          <step value="0.05000000"/>
+          <dependencyConditions>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="uiConditionCommandLineArg">
+                    <Arg>displayDLSSCalibration</Arg>
+                  </Item>
+                  <Item type="uiConditionIsDLSSSupported"/>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Hide</displayType>
+            </Item>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.fsr2Index</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="0"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.dlssQuality</Path>
+                    </setting>
+                    <action>kSettingDependency_Not_Equal</action>
+                    <targetValue value="5"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>fsr2Index</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_FSR2_MODE</displayName>
+          <description>GFX_FSR2_MODE_DESC</description>
+          <minimum value="0"/>
+          <maximum value="3"/>
+          <displayConverter>pause/settings/fsr2_perf_quality</displayConverter>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions platform="x64">
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.dlssQuality</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="5"/>
+                  </Item>
+                  <Item type="uiConditionNot">
+                    <Condition type="uiConditionIsDLSSSupported"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="uiConditionIsFSR2Supported"/>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Hide</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Float">
+          <id>fsr2Sharpen</id>
+          <displayStyle>kSettingDisplay_Slider</displayStyle>
+          <displayName>GFX_FSR2_SHARPEN</displayName>
+          <description>GFX_FSR2_SHARPEN_DESC</description>
+          <minimum value="0.00000000"/>
+          <maximum value="1.00000000"/>
+          <step value="0.05000000"/>
+          <dependencyConditions platform="x64">
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.dlssQuality</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="5"/>
+                  </Item>
+                  <Item type="uiConditionNot">
+                    <Condition type="uiConditionIsDLSSSupported"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.fsr2Index</Path>
+                    </setting>
+                    <action>kSettingDependency_Not_Equal</action>
+                    <targetValue value="0"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="uiConditionIsFSR2Supported"/>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Hide</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>taa</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_SHADER_TAA</displayName>
+          <description>GFX_SHADER_TAA_DESC</description>
+          <displayConverter>pause/settings/enable_med_to_ultra_quality</displayConverter>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_High</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions platform="x64">
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.dlssQuality</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="5"/>
+                  </Item>
+                  <Item type="uiConditionNot">
+                    <Condition type="uiConditionIsDLSSSupported"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.fsr2Index</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="0"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>fxaaEnabled</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_FXAA</displayName>
+          <description>GFX_FXAA_DESC</description>
+          <dependencyConditions platform="x64">
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.dlssQuality</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="5"/>
+                  </Item>
+                  <Item type="uiConditionNot">
+                    <Condition type="uiConditionIsDLSSSupported"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.fsr2Index</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="0"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Int32">
+          <id>msaa</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_MSAA</displayName>
+          <description>GFX_MSAA_DESC</description>
+          <minimum value="0"/>
+          <maximum value="3"/>
+          <maxEvaluator type="rage__fwuiMaxMsaa"/>
+          <displayConverter>pause/settings/multiplier</displayConverter>
+          <flags>kSettingFlags_RequiresDeviceRestart kSettingFlags_RequiresShaderRestart</flags>
+          <dependencyConditions platform="x64">
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.dlssQuality</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="5"/>
+                  </Item>
+                  <Item type="uiConditionNot">
+                    <Condition type="uiConditionIsDLSSSupported"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.fsr2Index</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="0"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_Bool">
+          <id>hdr</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>VID_HDR</displayName>
+          <description>SETTING_DESC_HDR</description>
+          <profileStatId>DisplayHdr</profileStatId>
+          <tipText>SETTING_TIP_HDR</tipText>
+          <default value="true"/>
+          <dependencyConditions>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="uiConditionCommandLineArg">
+                    <Arg>displayHDRcalibration</Arg>
+                  </Item>
+                  <Item type="uiConditionIsHDRSupported"/>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Hide</displayType>
+            </Item>
+          </dependencyConditions>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_Bool">
+          <id>hdr10PlusGaming</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>VID_HDR10PLUSGAMING</displayName>
+          <description>SETTING_DESC_HDR10PLUSGAMING</description>
+          <default value="false"/>
+          <dependencyConditions>
+            <Item>
+              <condition type="uiConditionAnd">
+                <Conditions>
+                  <Item type="uiConditionIsHDR10PlusGamingSupported"/>
+                  <Item type="rage__fwuiSettingsDependency_Bool">
+                    <setting>
+                      <Path>system.graphics.hdr</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="true"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Hide</displayType>
+            </Item>
+          </dependencyConditions>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>hdrIntensity</id>
+          <displayStyle>kSettingDisplay_Button</displayStyle>
+          <displayName>VID_HDRI</displayName>
+          <description>SETTING_DESC_HDR_CAL</description>
+          <profileStatId>DisplayHdrIntensity</profileStatId>
+          <tipText>SETTING_TIP_HDR_CAL</tipText>
+          <step value="10"/>
+          <default value="100"/>
+          <minimum value="80"/>
+          <maximum value="500"/>
+          <transition>hdr</transition>
+          <dependencyConditions>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="uiConditionCommandLineArg">
+                    <Arg>displayHDRcalibration</Arg>
+                  </Item>
+                  <Item type="uiConditionAnd">
+                    <Conditions>
+                      <Item type="uiConditionIsHDRSupported"/>
+                      <Item type="rage__fwuiSettingsDependency_Bool">
+                        <setting>
+                          <Path>system.graphics.hdr</Path>
+                        </setting>
+                        <action>kSettingDependency_Equal</action>
+                        <targetValue value="true"/>
+                      </Item>
+                    </Conditions>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Hide</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>hdrPeakBrightness</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <profileStatId>DisplayHdrPeakBrightness</profileStatId>
+          <step value="100"/>
+          <default value="1000"/>
+          <minimum value="300"/>
+          <maximum value="10000"/>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_Bool">
+          <id>hdrFilmicMode</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <displayName/>
+          <description/>
+          <profileStatId>DisplayHdrFilmicMode</profileStatId>
+          <default value="true"/>
+          <transition>hdr</transition>
+          <dependencyConditions>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="uiConditionCommandLineArg">
+                    <Arg>displayHDRcalibration</Arg>
+                  </Item>
+                  <Item type="uiConditionAnd">
+                    <Conditions>
+                      <Item type="uiConditionIsHDRSupported"/>
+                      <Item type="rage__fwuiSettingsDependency_Bool">
+                        <setting>
+                          <Path>system.graphics.hdr</Path>
+                        </setting>
+                        <action>kSettingDependency_Equal</action>
+                        <targetValue value="true"/>
+                      </Item>
+                    </Conditions>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Hide</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>gamma</id>
+          <displayStyle>kSettingDisplay_Button</displayStyle>
+          <displayName>MO_BRI</displayName>
+          <description>SETTING_DESC_GAMMA</description>
+          <profileStatId>DisplayGamma</profileStatId>
+          <tipText>SETTING_TIP_GAMMA</tipText>
+          <transition>gamma</transition>
+          <maximum value="30"/>
+          <default value="15"/>
+          <dependencyConditions>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="uiConditionNot">
+                    <Condition type="uiConditionIsHDRSupported"/>
+                  </Item>
+                  <Item type="rage__fwuiSettingsDependency_Bool">
+                    <setting>
+                      <Path>system.graphics.hdr</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="false"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Hide</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_Bool">
+          <id>hdrLegacyFixed</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <displayName/>
+          <description/>
+          <profileStatId>DisplayHdrLegacyFixed</profileStatId>
+          <default value="false"/>
+          <transition>hdr</transition>
+        </Item>
+      </Settings>
+    </Item>
+    <Item type="rage__fwuiAdvancedGraphicsSettingsGroup">
+      <id>advancedGraphics</id>
+      <groupMetaData>
+        <displayName>PM_SCR_ADVANCED_GRAPHICS</displayName>
+        <description/>
+        <displayStyle>kSettingDisplay_StandardGroup</displayStyle>
+      </groupMetaData>
+      <Settings>
+        <Item platform="x64" type="rage__fwuiSettingsItemInfo_Bool">
+          <id>locked</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_SETTING_LOCK</displayName>
+          <description>AGFX_SETTING_LOCK_DESC</description>
+          <displayConverter>pause/settings/advanced_settings_lock</displayConverter>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_APILevel">
+          <id>API</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_APIVERSION</displayName>
+          <description>GFX_APIVERSION_DESC</description>
+          <minEvaluator type="rage__fwuiMinApi"/>
+          <maximum>kSettingAPI_Vulkan</maximum>
+          <displayConverter>pause/settings/api</displayConverter>
+          <flags>kSettingFlags_RequiresGameRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>transferQueuesEnabled</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>asyncComputeEnabled</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Float">
+          <id>pedLodBias</id>
+          <displayStyle>kSettingDisplay_Slider</displayStyle>
+	  <displayName>HS_PEDLOD</displayName>
+          <description>HS_PEDLOD_DESC</description>
+          <minimum value="0.00000000"/>
+          <maximum value="0.50000000"/>
+          <step value="0.10000000"/>
+	  <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Float">
+          <id>vehicleLodBias</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <minimum value="0.00000000"/>
+          <maximum value="1.00000000"/>
+          <step value="0.10000000"/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>scatteringVolumeQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_VOLUMETRICS_VOLUMEQ</displayName>
+          <description>AGFX_VOLUMETRICS_VOLUMEQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>volumetricsRaymarchQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_VOLUMETRICS_RAYQ</displayName>
+          <description>AGFX_VOLUMETRICS_RAYQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>volumetricsLightingQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_VOLUMETRICS_LIGHTINGQ</displayName>
+          <description>AGFX_VOLUMETRICS_LIGHTINGQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>volumetricsRaymarchResolutionUnclamped</id>
+          <displayStyle>kSettingDisplay_Toggle</displayStyle>
+          <displayName>AGFX_VOLUMETRICS_UNCLAMP_RES</displayName>
+          <description>AGFX_VOLUMETRICS_UNCLAMP_RES_DESC</description>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>deepsurfaceQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>HS_DSQ</displayName>
+          <description>HS_DSQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>particleLightingQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_PRTLQ</displayName>
+          <description>AGFX_PRTLQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>shadowSoftShadows</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_SOFT_SHADOW</displayName>
+          <description>GFX_SOFT_SHADOW_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <displayConverter>pause/settings/enable_med_to_ultra_quality</displayConverter>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>shadowGrassShadows</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_SHADOW_GRASS</displayName>
+          <description>AGFX_SHADOW_GRASS_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_High</maximum>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>shadowParticleShadows</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>shadowLongShadows</id>
+          <displayStyle>kSettingDisplay_Toggle</displayStyle>
+          <displayName>AGFX_LSHADOW</displayName>
+          <description>AGFX_LSHADOW_DESC</description>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>ssaoFullScreenEnabled</id>
+          <displayStyle>kSettingDisplay_Toggle</displayStyle>
+          <displayName>SSAO_FULLSCREEN</displayName>
+          <description>SSAO_FULLSCREEN_DESC</description>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Int32">
+          <id>ssaoType</id>
+          <displayStyle>kSettingDisplay_Slider</displayStyle>
+          <displayName>HS_SSAOTYPE</displayName>
+          <description>HS_SSAOTYPE_DESC</description>
+          <minimum value="0"/>
+          <maximum value="1"/>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>ssdoResolution</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>HS_SSDO_RES</displayName>
+          <description>HS_SSDO_RES_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Int32">
+          <id>ssdoSampleCount</id>
+          <displayStyle>kSettingDisplay_Slider</displayStyle>
+          <displayName>HS_SSDOSC</displayName>
+          <description>HS_SSDOSC_DESC</description>
+          <minimum value="4"/>
+          <maximum value="6"/>
+	  <flags>kSettingFlags_RequiresDeviceRestart</flags>
+	  <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>ssdoUseDualRadii</id>
+          <displayStyle>kSettingDisplay_Toggle</displayStyle>
+	  <displayName>HS_SSDODR</displayName>
+          <description>HS_SSDODR_DESC</description>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+	  <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>ssdoTAABlendEnabled</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <description/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>waterRefractionQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_WATERREFRACTION</displayName>
+          <description>AGFX_WATERREFRACTION_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_High</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>waterReflectionQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_WATERREFLECTION</displayName>
+          <description>AGFX_WATERREFLECTION_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_High</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_UInt32">
+          <id>waterSimulationQuality</id>
+          <displayStyle>kSettingDisplay_Slider</displayStyle>
+          <displayName>AGFX_WATERSIM</displayName>
+          <description>AGFX_WATERSIM_DESC</description>
+          <minimum value="0"/>
+          <maximum value="4"/>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_ScaleMode">
+          <id>scalingMode</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_RESOLUTION_SCALE_MODE</displayName>
+          <description>AGFX_RESOLUTION_SCALE_MODE_DESC</description>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.dlssQuality</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="5"/>
+                  </Item>
+                  <Item type="uiConditionNot">
+                    <Condition type="uiConditionIsDLSSSupported"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+            <Item>
+              <condition type="uiConditionOr">
+                <Conditions>
+                  <Item type="rage__fwuiSettingsDependency_Int32">
+                    <setting>
+                      <Path>system.graphics.fsr2Index</Path>
+                    </setting>
+                    <action>kSettingDependency_Equal</action>
+                    <targetValue value="0"/>
+                  </Item>
+                </Conditions>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Float">
+          <id>sharpenIntensity</id>
+          <displayStyle>kSettingDisplay_Slider</displayStyle>
+          <displayName>AGFX_SHADER_TAA_SHARPENING</displayName>
+          <description>AGFX_SHADER_TAA_SHARPENING_DESC</description>
+          <minimum value="0.00000000"/>
+          <maximum value="4.00000000"/>
+          <step value="0.05000000"/>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Int32">
+                <setting>
+                  <Path>system.graphics.taa</Path>
+                </setting>
+                <action>kSettingDependency_Equal_OR_Greater</action>
+                <targetValue value="1"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Float">
+          <id>motionBlurLimit</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <minimum value="8"/>
+          <maximum value="32"/>
+          <step value="4"/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>motionBlur</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_MOTION_BLUR</displayName>
+          <description>AGFX_MOTION_BLUR_DESC</description>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>waterLightingQuality</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Int32">
+          <id>waterReflectionResX</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <maximum value="4096"/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Int32">
+          <id>waterReflectionResY</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <maximum value="4096"/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Int32">
+          <id>reflectionMSAA</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_REFLECTION_MSAA</displayName>
+          <description>AGFX_REFLECTION_MSAA_DESC</description>
+          <minimum value="0"/>
+          <maximum value="3"/>
+          <maxEvaluator type="rage__fwuiMaxMsaa"/>
+          <displayConverter>pause/settings/multiplier</displayConverter>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Int32">
+          <id>maxTexUpgradesPerFrame</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <description/>
+          <minimum value="5"/>
+          <maximum value="10"/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Float">
+          <id>lodScale</id>
+          <displayStyle>kSettingDisplay_Slider</displayStyle>
+          <displayName>AGFX_LODSCALE</displayName>
+          <description>AGFX_LODSCALE_DESC</description>
+          <minimum value="1.25000000"/>
+          <maximum value="1.50000000"/>
+          <step value="0.05000000"/>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Float">
+          <id>grassLod</id>
+          <displayName>GFX_GRASS_LOD</displayName>
+          <description>GFX_GRASS_LOD_DESC</description>
+          <displayStyle>kSettingDisplay_Slider</displayStyle>
+          <minimum value="0.50000000"/>
+          <maximum value="3.00000000"/>
+          <step value="0.25000000"/>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>treeQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_TREEQ</displayName>
+          <description>AGFX_TREEQ_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>POMQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_POMQUALITY</displayName>
+          <description>AGFX_POMQUALITY_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>decalQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>AGFX_DECALQUALITY</displayName>
+          <description>AGFX_DECALQUALITY_DESC</description>
+          <minimum>kSettingLevel_Low</minimum>
+          <maximum>kSettingLevel_Ultra</maximum>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>furDisplayQuality</id>
+          <displayStyle>kSettingDisplay_Stepper</displayStyle>
+          <displayName>GFX_FURDISPLAYQUALITY</displayName>
+          <description>GFX_FURDISPLAYQUALITY_DESC</description>
+          <minimum>kSettingLevel_Medium</minimum>
+          <maximum>kSettingLevel_High</maximum>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>treeTessellationEnabled</id>
+          <displayStyle>kSettingDisplay_Toggle</displayStyle>
+          <displayName>GFX_TREE_TESS</displayName>
+          <description>GFX_TREE_TESS_DESC</description>
+          <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>checkerboardEnabled</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <description/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>probeRelightEveryFrame</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <description/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>waterReflectionSSR</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Float">
+          <id>worldHeightShadowQuality</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <description/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Float">
+          <id>directionalScreenSpaceShadowQuality</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <description/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Int32">
+          <id>ssroSampleCount</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <description/>
+          <minimum value="2"/>
+          <maximum value="16"/>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>snowGlints</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>directionalShadowsAlpha</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>ambientMaskVolumesHighPrecision</id>
+          <displayStyle>kSettingDisplay_Toggle</displayStyle>
+	  <displayName>HS_AMVHP</displayName>
+          <description>HS_AMVHP_DESC</description>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+	  <dependencyConditions>
+            <Item>
+              <condition type="rage__fwuiSettingsDependency_Bool">
+                <setting>
+                  <Path>system.advancedGraphics.locked</Path>
+                </setting>
+                <action>kSettingDependency_Equal</action>
+                <targetValue value="false"/>
+              </condition>
+              <displayType>kSettingDependency_Disable</displayType>
+            </Item>
+          </dependencyConditions>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_SettingsLevel">
+          <id>terrainShadowQuality</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+        </Item>
+        <Item type="rage__fwuiSettingsItemInfo_Bool">
+          <id>damageModelsDisabled</id>
+          <displayStyle>kSettingDisplay_DontShow</displayStyle>
+          <flags>kSettingFlags_RequiresDeviceRestart</flags>
+        </Item>
+      </Settings>
+    </Item>
+  </SubGroups>
+</uiSystemSettingsGroup>

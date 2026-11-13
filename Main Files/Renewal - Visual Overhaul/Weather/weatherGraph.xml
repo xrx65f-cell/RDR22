@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CWeatherGraphXMLContents>
+<nodes>
+	<Item>
+		<name>WHITEOUT</name>
+		<waitTimeMin value="30" />
+		<waitTimeMax value="90" />
+		<posX value="822.765625" />
+		<posY value="980.734375" />
+	<links>
+		<Item>
+			<to>BLIZZARD</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>GROUNDBLIZZARD</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>BLIZZARD</name>
+		<waitTimeMin value="30" />
+		<waitTimeMax value="90" />
+		<posX value="570.609375" />
+		<posY value="929.734375" />
+	<links>
+		<Item>
+			<to>WHITEOUT</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SNOW</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>HURRICANE</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>CLOUDS</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SUNNY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>GROUNDBLIZZARD</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>SNOW</name>
+		<waitTimeMin value="60" />
+		<waitTimeMax value="120" />
+		<posX value="400.4858093261719" />
+		<posY value="967.7301139831543" />
+	<links>
+		<Item>
+			<to>SNOWLIGHT</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>FOG</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCASTDARK</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>SNOWLIGHT</name>
+		<waitTimeMin value="60" />
+		<waitTimeMax value="120" />
+		<posX value="190.2796052631579" />
+		<posY value="968.1414473684212" />
+	<links>
+		<Item>
+			<to>CLOUDS</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SNOW</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>MISTY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SUNNY</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>SLEET</name>
+		<waitTimeMin value="25" />
+		<waitTimeMax value="45" />
+		<posX value="255.609375" />
+		<posY value="744.734375" />
+	<links>
+		<Item>
+			<to>SNOW</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>DRIZZLE</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>RAIN</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SHOWER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SNOWLIGHT</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SNOWCLEARING</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>FOG</name>
+		<waitTimeMin value="60" />
+		<waitTimeMax value="120" />
+		<posX value="576.4309210526316" />
+		<posY value="275.50986842105266" />
+	<links>
+		<Item>
+			<to>MISTY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SHOWER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCASTDARK</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>RAIN</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>HAIL</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SNOW</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>OVERCAST</name>
+		<waitTimeMin value="90" />
+		<waitTimeMax value="180" />
+		<posX value="771.4858093261719" />
+		<posY value="307.7301139831543" />
+	<links>
+		<Item>
+			<to>MISTY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>RAIN</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SANDSTORM</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>THUNDER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>FOG</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>CLOUDS</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SUNNY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>THUNDERSTORM</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SHOWER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCASTDARK</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SNOW</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SNOWLIGHT</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>DRIZZLE</name>
+		<waitTimeMin value="45" />
+		<waitTimeMax value="90" />
+		<posX value="272.4858093261719" />
+		<posY value="503.7301139831543" />
+	<links>
+		<Item>
+			<to>SLEET</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SHOWER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>RAIN</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>HAIL</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>CLOUDS</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>MISTY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>FOG</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCASTDARK</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SUNNY</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>MISTY</name>
+		<waitTimeMin value="60" />
+		<waitTimeMax value="120" />
+		<posX value="960.6414473684212" />
+		<posY value="281.8256578947369" />
+	<links>
+		<Item>
+			<to>FOG</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>CLOUDS</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SHOWER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>RAIN</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>HAIL</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCASTDARK</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SNOW</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>CLOUDS</name>
+		<waitTimeMin value="60" />
+		<waitTimeMax value="180" />
+		<posX value="362.91118421052636" />
+		<posY value="446.03618421052636" />
+	<links>
+		<Item>
+			<to>SHOWER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>MISTY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SUNNY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>RAIN</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>THUNDER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>THUNDERSTORM</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>HIGHPRESSURE</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCASTDARK</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SANDSTORM</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SNOWLIGHT</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>SHOWER</name>
+		<waitTimeMin value="45" />
+		<waitTimeMax value="95" />
+		<posX value="858.40625" />
+		<posY value="75.734375" />
+	<links>
+		<Item>
+			<to>RAIN</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>THUNDER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>HAIL</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>CLOUDS</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>MISTY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>THUNDERSTORM</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>FOG</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>RAIN</name>
+		<waitTimeMin value="45" />
+		<waitTimeMax value="145" />
+		<posX value="917.09375" />
+		<posY value="430.734375" />
+	<links>
+		<Item>
+			<to>SHOWER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>THUNDERSTORM</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>HAIL</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>THUNDER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>CLOUDS</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>MISTY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>FOG</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCASTDARK</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>THUNDERSTORM</name>
+		<waitTimeMin value="90" />
+		<waitTimeMax value="120" />
+		<posX value="979.40625" />
+		<posY value="503.734375" />
+	<links>
+		<Item>
+			<to>THUNDER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>RAIN</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SHOWER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCASTDARK</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>FOG</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>SUNNY</name>
+		<waitTimeMin value="60" />
+		<waitTimeMax value="180" />
+		<posX value="329.2269736842105" />
+		<posY value="112.35197368421053" />
+	<links>
+		<Item>
+			<to>HIGHPRESSURE</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>CLOUDS</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SHOWER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SNOWLIGHT</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>HAIL</name>
+		<waitTimeMin value="30" />
+		<waitTimeMax value="60" />
+		<posX value="428.609375" />
+		<posY value="845.734375" />
+	<links>
+		<Item>
+			<to>SHOWER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>FOG</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCASTDARK</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>RAIN</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>MISTY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SNOW</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>HURRICANE</name>
+		<waitTimeMin value="90" />
+		<waitTimeMax value="165" />
+		<posX value="671.1677631578948" />
+		<posY value="556.5625" />
+	<links>
+		<Item>
+			<to>RAIN</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>THUNDER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>THUNDERSTORM</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCASTDARK</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>FOG</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>MISTY</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>THUNDER</name>
+		<waitTimeMin value="35" />
+		<waitTimeMax value="80" />
+		<posX value="771.4858093261719" />
+		<posY value="761.7301139831543" />
+	<links>
+		<Item>
+			<to>THUNDERSTORM</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>CLOUDS</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>RAIN</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCASTDARK</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SHOWER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>HAIL</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>HIGHPRESSURE</name>
+		<waitTimeMin value="60" />
+		<waitTimeMax value="120" />
+		<posX value="110.2796052631579" />
+		<posY value="262.8782894736842" />
+	<links>
+		<Item>
+			<to>SUNNY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>CLOUDS</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>SNOWCLEARING</name>
+		<waitTimeMin value="60" />
+		<waitTimeMax value="120" />
+		<posX value="67.1217105263158" />
+		<posY value="767.0888157894738" />
+	<links>
+		<Item>
+			<to>SNOWLIGHT</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>FOG</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SLEET</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>MISTY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>HIGHPRESSURE</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>OVERCASTDARK</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>CLOUDS</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SUNNY</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>OVERCASTDARK</name>
+		<waitTimeMin value="75" />
+		<waitTimeMax value="120" />
+		<posX value="185.28125" />
+		<posY value="384.734375" />
+	<links>
+		<Item>
+			<to>THUNDERSTORM</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>THUNDER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>MISTY</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SHOWER</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>HAIL</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>FOG</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>RAIN</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SNOWLIGHT</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>SNOW</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>SANDSTORM</name>
+		<waitTimeMin value="60" />
+		<waitTimeMax value="180" />
+		<posX value="661.4858093261719" />
+		<posY value="734.7301139831543" />
+	<links>
+		<Item>
+			<to>OVERCAST</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>THUNDERSTORM</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>RAIN</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>CLOUDS</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+	<Item>
+		<name>GROUNDBLIZZARD</name>
+		<waitTimeMin value="30" />
+		<waitTimeMax value="90" />
+		<posX value="819.765625" />
+		<posY value="829.734375" />
+	<links>
+		<Item>
+			<to>WHITEOUT</to>
+			<cost value="100" />
+		</Item>
+		<Item>
+			<to>BLIZZARD</to>
+			<cost value="100" />
+		</Item>
+	</links>
+	</Item>
+</nodes>
+</CWeatherGraphXMLContents>

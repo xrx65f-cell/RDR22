@@ -1,0 +1,13 @@
+HOW TO INSTALL: 
+
+1. Choose only one option!
+
+2. Open the folder of the version you want, then copy everything inside it into the "Renewal – Visual Overhaul" folder, when prompted, allow the files to be replaced.
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________
+
+ATTENTION:
+
+1. If you're using "Hidden Graphical Settings + Geometry LOD", make sure the "Pedestrian Level of Detail" slider is set to maximum, otherwise distant peds/horses may look odd.
+
+2. Expect up to a 10% performance hit when using "Hidden Graphical Settings + Geometry LOD", higher LOD levels demand more GPU/CPU resources, so it’s completely normal for performance to drop a bit.

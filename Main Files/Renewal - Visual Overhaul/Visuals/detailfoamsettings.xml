@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DetailFoam_Tunables>
+  <FoamyTextureSizeInWorld value="1.800000" />
+  <uvScaleFor2ndFoamyTextureRead value="1.800000" />
+  <FoamyTextureToneMapLowAtCreation value="0.655000" />
+  <FoamyTextureToneMapHighAtCreation value="1.000000" />
+  <FoamyTextureToneMapLowAtDissolve value="0.987000" />
+  <FoamyTextureToneMapHighAtDissolve value="1.000000" />
+  <FoamThickness value="0.010000" />
+  <NormalOffsetScale value="-0.025000" />
+  <FoamDecayRate value="0.850000" />
+  <SigmaForGaussianBlur value="5.496340" />
+  <ProductionProfiles>
+    <Item>
+      <ContinuousFoamAmountAtMaxVelocity value="0.85"/>
+      <ContinuousFoamMaxVelocity value="0.28"/>
+      <ContinuousFoamCurveAdjust value="1.6"/>
+    </Item>
+    <Item>
+      <ContinuousFoamAmountAtMaxVelocity value="0.85"/>
+      <ContinuousFoamMaxVelocity value="0.28"/>
+      <ContinuousFoamCurveAdjust value="1.6"/>
+    </Item>
+    <Item>
+      <ContinuousFoamAmountAtMaxVelocity value="4.000000" />
+      <ContinuousFoamMaxVelocity value="8.000000" />
+      <ContinuousFoamCurveAdjust value="2.000000" />
+    </Item>
+    <Item>
+      <ContinuousFoamAmountAtMaxVelocity value="1.5"/>
+      <ContinuousFoamMaxVelocity value="0.28"/>
+      <ContinuousFoamCurveAdjust value="1.7"/>
+    </Item>
+    <Item>
+      <ContinuousFoamAmountAtMaxVelocity value="0.85"/>
+      <ContinuousFoamMaxVelocity value="0.28"/>
+      <ContinuousFoamCurveAdjust value="1.6"/> 
+    </Item>
+    <Item>
+      <ContinuousFoamAmountAtMaxVelocity value="4.000000" />
+      <ContinuousFoamMaxVelocity value="8.000000" />
+      <ContinuousFoamCurveAdjust value="2.000000" />
+    </Item>
+    <Item>
+      <ContinuousFoamAmountAtMaxVelocity value="4.000000" />
+      <ContinuousFoamMaxVelocity value="8.000000" />
+      <ContinuousFoamCurveAdjust value="2.000000" />
+    </Item>
+    <Item>
+      <ContinuousFoamAmountAtMaxVelocity value="4.000000" />
+      <ContinuousFoamMaxVelocity value="8.000000" />
+      <ContinuousFoamCurveAdjust value="2.000000" />
+    </Item>
+    <Item>
+      <ContinuousFoamAmountAtMaxVelocity value="4.000000" />
+      <ContinuousFoamMaxVelocity value="8.000000" />
+      <ContinuousFoamCurveAdjust value="2.000000" />
+    </Item>
+    <Item>
+      <ContinuousFoamAmountAtMaxVelocity value="4.000000" />
+      <ContinuousFoamMaxVelocity value="8.000000" />
+      <ContinuousFoamCurveAdjust value="2.000000" />
+    </Item>
+    <Item>
+      <ContinuousFoamAmountAtMaxVelocity value="4.000000" />
+      <ContinuousFoamMaxVelocity value="8.000000" />
+      <ContinuousFoamCurveAdjust value="2.000000" />
+    </Item>
+    <Item>
+      <ContinuousFoamAmountAtMaxVelocity value="4.000000" />
+      <ContinuousFoamMaxVelocity value="8.000000" />
+      <ContinuousFoamCurveAdjust value="2.000000" />
+    </Item>
+  </ProductionProfiles>
+  <RiverFlowScale_Creation value="1.000000" />
+  <RiverFlowScale_Propagation value="1.000000" />
+  <RiverFlowScale_TextureScroll value="6.000000" />
+  <IntensityCurveAdjust value="0.600000" />
+</DetailFoam_Tunables>
